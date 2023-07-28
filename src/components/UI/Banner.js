@@ -7,7 +7,7 @@ import React from "react";
 
 const Banner = () => {
   return (
-    <div className="carousel w-full h-[350px] lg:h-[600px]">
+    <div className="carousel w-full h-[350px] lg:h-[600px] ">
       <div id="slide1" className="carousel-item relative w-full">
         <Image
           // src="https://www.startech.com.bd/image/cache/catalog/home/banner/desktop-deal/desktop-deal-live-now-home-banner-982x500.webp"

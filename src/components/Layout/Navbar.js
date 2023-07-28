@@ -1,8 +1,9 @@
+import Link from "next/link";
 import React from "react";
 
 const Navbar = () => {
   return (
-    <div className="navbar bg-base-100">
+    <div className="navbar bg-base-100 flex justify-between">
       <div className="navbar-start">
         <div className="dropdown">
           <label tabIndex={0} className="btn btn-ghost lg:hidden">
@@ -25,53 +26,88 @@ const Navbar = () => {
             tabIndex={0}
             className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52"
           >
-            <li>
-              <a>Item 1</a>
-            </li>
-            <li>
-              <a>Parent</a>
+            {/* <li>
+              <a>PC Builder</a>
+            </li> */}
+            <li className="z-10">
+              <a>Categories</a>
               <ul className="p-2">
                 <li>
-                  <a>Submenu 1</a>
+                  <Link href="/cpu-processor">CPU/Processor</Link>
                 </li>
                 <li>
-                  <a>Submenu 2</a>
+                  <a>Motherboard</a>
+                </li>
+                <li>
+                  <a>RAM</a>
+                </li>
+                <li>
+                  <a>Power Supply Unit</a>
+                </li>
+                <li>
+                  <a>Storage Device</a>
+                </li>
+                <li>
+                  <a>Monitor</a>
+                </li>
+                <li>
+                  <a>Others</a>
                 </li>
               </ul>
             </li>
-            <li>
+            {/* <li>
               <a>Item 3</a>
-            </li>
+            </li> */}
           </ul>
         </div>
-        <a className="btn btn-ghost normal-case text-xl">daisyUI</a>
+        <Link href="/">
+          <button className="btn btn-ghost normal-case text-xl">
+            PC Builder
+          </button>
+        </Link>
       </div>
-      <div className="navbar-center hidden lg:flex">
-        <ul className="menu menu-horizontal px-1">
+      <div className="mr-10 hidden lg:flex">
+        <ul className="menu menu-horizontal px-1 lg:flex justify-between">
           <li>
-            <a>Item 1</a>
+            <Link href="/pc-builder">PC Builder</Link>
           </li>
-          <li tabIndex={0}>
+
+          <li className="z-10" tabIndex={0}>
             <details>
-              <summary>Parent</summary>
-              <ul className="p-2">
+              <summary className="px-8">Categories</summary>
+              <ul className="p-4 ">
                 <li>
-                  <a>Submenu 1</a>
+                  <Link href="/cpu-processor">CPU/Processor</Link>
                 </li>
                 <li>
-                  <a>Submenu 2</a>
+                  <Link href="/motherboard">Motherboard</Link>
+                </li>
+                <li>
+                  <Link href="/ram">RAM</Link>
+                </li>
+                <li>
+                  <Link href="/power-supply">Power Supply Unit</Link>
+                </li>
+                <li>
+                  <Link href="/storage">Storage Device</Link>
+                </li>
+                <li>
+                  <Link href="/monitor">Monitor</Link>
+                </li>
+                <li>
+                  <Link href="/others">Others</Link>
                 </li>
               </ul>
             </details>
           </li>
-          <li>
+          {/* <li>
             <a>Item 3</a>
-          </li>
+          </li> */}
         </ul>
       </div>
-      <div className="navbar-end">
+      {/* <div className="navbar-end">
         <a className="btn">Button</a>
-      </div>
+      </div> */}
     </div>
   );
 };

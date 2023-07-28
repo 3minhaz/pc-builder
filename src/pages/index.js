@@ -1,8 +1,6 @@
 // import Image from "next/image";
 // import { Inter } from "next/font/google";
 
-import Footer from "@/components/Layout/Footer";
-import Navbar from "@/components/Layout/Navbar";
 import RootLayout from "@/components/Layout/RootLayout";
 import Banner from "@/components/UI/Banner";
 
