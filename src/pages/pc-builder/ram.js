@@ -1,21 +1,20 @@
-import Image from "next/image";
 import RootLayout from "@/components/Layout/RootLayout";
-import React from "react";
-import { useDispatch, useSelector } from "react-redux";
-import { useRouter } from "next/router";
 import { addMotherboard } from "@/redux/features/product/productSlice";
+import Image from "next/image";
+import { useRouter } from "next/router";
+import React from "react";
+import { useDispatch } from "react-redux";
 
-const Motherboard = ({ motherboard }) => {
+const Ram = ({ ram }) => {
   const router = useRouter();
 
   const dispatch = useDispatch();
-  const { data: products } = motherboard;
+  const { data: products } = ram;
 
   const handleSelect = (product) => {
     dispatch(addMotherboard(product));
     router.push("/pc-builder");
   };
-
   return (
     <div className="grid gap-3 grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
       {products?.map((product) => (
@@ -59,21 +58,21 @@ const Motherboard = ({ motherboard }) => {
   );
 };
 
-export default Motherboard;
+export default Ram;
 
-Motherboard.getLayout = function getLayout(page) {
+Ram.getLayout = function getLayout(page) {
   return <RootLayout>{page}</RootLayout>;
 };
 
 export const getServerSideProps = async () => {
   const res = await fetch(
-    "https://pc-builder-gules.vercel.app/api/products?category=motherboard"
+    "https://pc-builder-gules.vercel.app/api/products?category=ram"
   );
-  const motherboard = await res.json();
+  const ram = await res.json();
 
   return {
     props: {
-      motherboard,
+      ram,
     },
   };
 };

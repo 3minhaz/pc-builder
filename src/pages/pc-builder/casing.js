@@ -5,11 +5,11 @@ import { useDispatch, useSelector } from "react-redux";
 import { useRouter } from "next/router";
 import { addMotherboard } from "@/redux/features/product/productSlice";
 
-const Motherboard = ({ motherboard }) => {
+const Motherboard = ({ casing }) => {
   const router = useRouter();
 
   const dispatch = useDispatch();
-  const { data: products } = motherboard;
+  const { data: products } = casing;
 
   const handleSelect = (product) => {
     dispatch(addMotherboard(product));
@@ -67,13 +67,13 @@ Motherboard.getLayout = function getLayout(page) {
 
 export const getServerSideProps = async () => {
   const res = await fetch(
-    "https://pc-builder-gules.vercel.app/api/products?category=motherboard"
+    "https://pc-builder-gules.vercel.app/api/products?category=casing"
   );
-  const motherboard = await res.json();
+  const casing = await res.json();
 
   return {
     props: {
-      motherboard,
+      casing,
     },
   };
 };

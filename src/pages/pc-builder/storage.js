@@ -1,15 +1,15 @@
-import Image from "next/image";
 import RootLayout from "@/components/Layout/RootLayout";
-import React from "react";
-import { useDispatch, useSelector } from "react-redux";
-import { useRouter } from "next/router";
 import { addMotherboard } from "@/redux/features/product/productSlice";
+import Image from "next/image";
+import { useRouter } from "next/router";
+import React from "react";
+import { useDispatch } from "react-redux";
 
-const Motherboard = ({ motherboard }) => {
+const Storage = ({ storage }) => {
   const router = useRouter();
 
   const dispatch = useDispatch();
-  const { data: products } = motherboard;
+  const { data: products } = storage;
 
   const handleSelect = (product) => {
     dispatch(addMotherboard(product));
@@ -59,21 +59,21 @@ const Motherboard = ({ motherboard }) => {
   );
 };
 
-export default Motherboard;
+export default Storage;
 
-Motherboard.getLayout = function getLayout(page) {
+Storage.getLayout = function getLayout(page) {
   return <RootLayout>{page}</RootLayout>;
 };
 
 export const getServerSideProps = async () => {
   const res = await fetch(
-    "https://pc-builder-gules.vercel.app/api/products?category=motherboard"
+    "https://pc-builder-gules.vercel.app/api/products?category=storage"
   );
-  const motherboard = await res.json();
+  const storage = await res.json();
 
   return {
     props: {
-      motherboard,
+      storage,
     },
   };
 };

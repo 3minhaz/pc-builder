@@ -5,11 +5,11 @@ import { useDispatch, useSelector } from "react-redux";
 import { useRouter } from "next/router";
 import { addMotherboard } from "@/redux/features/product/productSlice";
 
-const Motherboard = ({ motherboard }) => {
+const Monitor = ({ monitor }) => {
   const router = useRouter();
 
   const dispatch = useDispatch();
-  const { data: products } = motherboard;
+  const { data: products } = monitor;
 
   const handleSelect = (product) => {
     dispatch(addMotherboard(product));
@@ -59,21 +59,21 @@ const Motherboard = ({ motherboard }) => {
   );
 };
 
-export default Motherboard;
+export default Monitor;
 
-Motherboard.getLayout = function getLayout(page) {
+Monitor.getLayout = function getLayout(page) {
   return <RootLayout>{page}</RootLayout>;
 };
 
 export const getServerSideProps = async () => {
   const res = await fetch(
-    "https://pc-builder-gules.vercel.app/api/products?category=motherboard"
+    "https://pc-builder-gules.vercel.app/api/products?category=monitor"
   );
-  const motherboard = await res.json();
+  const monitor = await res.json();
 
   return {
     props: {
-      motherboard,
+      monitor,
     },
   };
 };
