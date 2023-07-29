@@ -55,7 +55,7 @@ Processor.getLayout = function getLayout(page) {
 
 export const getStaticProps = async () => {
   const res = await fetch(
-    "http://localhost:3000/api/products?category=cpu-processor"
+    "https://pc-builder-gules.vercel.app/api/products?category=cpu-processor"
   );
   const processor = await res.json();
 

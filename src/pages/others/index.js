@@ -16,7 +16,9 @@ OthersPage.getLayout = function getLayout(page) {
 };
 
 export const getStaticProps = async () => {
-  const res = await fetch("http://localhost:3000/api/products?category=others");
+  const res = await fetch(
+    "https://pc-builder-gules.vercel.app/api/products?category=others"
+  );
   const others = await res.json();
 
   return {

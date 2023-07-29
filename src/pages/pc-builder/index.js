@@ -4,25 +4,41 @@ import { removeProduct } from "@/redux/features/product/productSlice";
 
 import Image from "next/image";
 import Link from "next/link";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
+import { toast } from "react-hot-toast";
 import { useDispatch, useSelector } from "react-redux";
 
 const PC_Builder = () => {
   const dispatch = useDispatch();
   const { buildPcComponents } = useSelector((state) => state.product);
-  const [motherboard, setMotherboard] = useState({});
+  // const [motherboard, setMotherboard] = useState({});
+  const [buildButton, setBuildButton] = useState(false);
 
-  console.log(buildPcComponents, "from pc builder");
+  // console.log(buildPcComponents, "from pc builder");
 
-  const handleRemove = (product) => {
-    dispatch(removeProduct(product));
-  };
   const motherboardExist = buildPcComponents.find(
     (product) => product.category === "motherboard"
   );
   const processorExist = buildPcComponents.find(
     (product) => product.category === "cpu-processor"
   );
+  const enable = motherboardExist?._id && processorExist?._id;
+  const handleRemove = (product) => {
+    dispatch(removeProduct(product));
+  };
+
+  useEffect(() => {
+    if (enable) {
+      setBuildButton(true);
+    } else {
+      setBuildButton(false);
+    }
+  }, [enable]);
+
+  // if (motherboardExist?._id && processorExist?._id) {
+  //   setBuildButton(true);
+  // }
+
   return (
     <div className="mx-auto max-w-[900px] flex items-center justify-center flex-col ">
       <div className="flex w-full justify-between items-center">
@@ -88,6 +104,13 @@ const PC_Builder = () => {
           </>
         )}
       </div>
+      <button
+        onClick={() => toast.success("you build the pc successfully")}
+        disabled={!buildButton}
+        className="btn btn-primary mt-20"
+      >
+        Build PC
+      </button>
     </div>
   );
 };

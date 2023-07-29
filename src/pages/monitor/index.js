@@ -17,7 +17,7 @@ MonitorPage.getLayout = function getLayout(page) {
 
 export const getStaticProps = async () => {
   const res = await fetch(
-    "http://localhost:3000/api/products?category=monitor"
+    "https://pc-builder-gules.vercel.app/api/products?category=monitor"
   );
   const monitor = await res.json();
 

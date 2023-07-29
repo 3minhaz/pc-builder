@@ -16,7 +16,9 @@ RamPage.getLayout = function getLayout(page) {
 };
 
 export const getStaticProps = async () => {
-  const res = await fetch("http://localhost:3000/api/products?category=ram");
+  const res = await fetch(
+    "https://pc-builder-gules.vercel.app/api/products?category=ram"
+  );
   const ram = await res.json();
 
   return {
