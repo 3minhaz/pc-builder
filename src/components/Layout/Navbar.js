@@ -29,9 +29,15 @@ const Navbar = () => {
             tabIndex={0}
             className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52"
           >
-            {/* <li>
-              <a>PC Builder</a>
-            </li> */}
+            {session?.user ? (
+              <>
+                <p className="mr-4">{session?.user.name}</p>
+
+                <button onClick={() => signOut()}>Sign out</button>
+              </>
+            ) : (
+              <Link href="/login">Login</Link>
+            )}
             <li className="z-10">
               <a>Categories</a>
               <ul className="p-2">
@@ -63,6 +69,7 @@ const Navbar = () => {
             </li> */}
           </ul>
         </div>
+
         <Link href="/">
           <button className="btn btn-ghost normal-case text-xl">
             PC Builder

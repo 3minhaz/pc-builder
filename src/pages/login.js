@@ -4,12 +4,13 @@ import RootLayout from "@/components/Layout/RootLayout";
 
 const Login = () => {
   return (
-    <div className="mx-auto">
+    <div className="flex justify-center items-center max-h-[400px]">
       <button
+        className="btn btn-info"
         onClick={() =>
           signIn("google", {
-            // callbackUrl: "http://localhost:3000",
-            callbackUrl: "https://pc-builder-gules.vercel.app",
+            callbackUrl: "http://localhost:3000",
+            // callbackUrl: "https://pc-builder-gules.vercel.app",
           })
         }
       >
