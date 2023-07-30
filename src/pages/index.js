@@ -35,27 +35,29 @@ export const getStaticProps = async () => {
       props: {
         data,
       },
+      revalidate: 10,
     };
-  } else {
-    const res = await fetch(
-      "https://pc-builder-gules.vercel.app/api/products"
-      // "http://localhost:3000/api/products"
-    );
-    const data = await res.json();
-    return {
-      props: {
-        data,
-      },
-    };
-    // const res = await fetch(
-    //   "https://pc-builder-gules.vercel.app/api/getHomeProducts"
-    //   // "http://localhost:3000/api/getHomeProducts"
-    // );
-    // const data = await res.json();
-    // return {
-    //   props: {
-    //     data,
-    //   },
-    // };
   }
+  // else {
+  //   const res = await fetch(
+  //     "https://pc-builder-gules.vercel.app/api/products"
+  //     // "http://localhost:3000/api/products"
+  //   );
+  //   const data = await res.json();
+  //   return {
+  //     props: {
+  //       data,
+  //     },
+  //   };
+  // const res = await fetch(
+  //   "https://pc-builder-gules.vercel.app/api/getHomeProducts"
+  //   // "http://localhost:3000/api/getHomeProducts"
+  // );
+  // const data = await res.json();
+  // return {
+  //   props: {
+  //     data,
+  //   },
+  // };
+  // }
 };
