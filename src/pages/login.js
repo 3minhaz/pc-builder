@@ -9,8 +9,8 @@ const Login = () => {
         className="btn btn-info"
         onClick={() =>
           signIn("google", {
-            callbackUrl: "http://localhost:3000",
-            // callbackUrl: "https://pc-builder-gules.vercel.app",
+            // callbackUrl: "http://localhost:3000",
+            callbackUrl: "https://pc-builder-gules.vercel.app",
           })
         }
       >
