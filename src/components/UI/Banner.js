@@ -2,7 +2,7 @@ import Image from "next/image";
 import img1 from "../../assets/images/desktop-deal-live-now-home-banner-982x500.webp";
 import img2 from "../../assets/images/mi-a2-l43m7-eaukr-01-500x500.webp";
 import img3 from "../../assets/images/pro-mp241x-0001-500x500.png";
-import img4 from "../../assets/images/tuf-gaming-geforce-gtx-1630-oc-edition-01-500x500.webp";
+// import img4 from "../../assets/images/tuf-gaming-geforce-gtx-1630-oc-edition-01-500x500.webp";
 import React from "react";
 
 const Banner = () => {

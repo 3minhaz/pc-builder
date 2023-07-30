@@ -19,14 +19,11 @@ export const productSlice = createSlice({
       } else {
         toast.error("Already added product");
       }
-
-      // }
     },
     removeProduct: (state, action) => {
       state.buildPcComponents = state.buildPcComponents.filter(
         (product) => product._id.toString() !== action.payload._id.toString()
       );
-      // console.log(find);
     },
   },
 });

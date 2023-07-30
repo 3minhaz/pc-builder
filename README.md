@@ -1,38 +1,28 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+This is a [PC-builder](https://pc-builder-gules.vercel.app/) project
+
+## Technology used
+
+- Redux
+- Next JS
+- Next auth
+- Mongodb
 
 ## Getting Started
 
-First, run the development server:
+- In navbar , you will get dropdown menu which is include all of the cpu categories like ram ,cpu etc.
+- If you select any option it will take you to related all products page.
+- If you click on single product you can see the details of the project.
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-```
+In home page you will get different options featured categories and featured products.
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+- If you click on any card of featured categories it will show you respective products and also click on the details button it will show you the details of that product.
 
-You can start editing the page by modifying `pages/index.js`. The page auto-updates as you edit the file.
+- In featured products, you will get 10 products. If you click on any product it will redirect you to details page.
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.js`.
+In navbar you will see build pc, if you click on that button it will redirect you to login after that you logged in with Google , you will able to see and able to build to a PC.
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
-
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+- You will see select on each category.
+- when click on select it will take you to respective page and after click on add to build you will redirect to pc-build page. Here you can see selected category product.
+- On the bottom you will see build button which is initially disabled.
+- To enable that button you need to select all of the category product.
+- After selecting all the product , you will able to click the button and it will show a toast success message.

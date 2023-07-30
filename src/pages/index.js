@@ -1,15 +1,9 @@
-// import Image from "next/image";
-// import { Inter } from "next/font/google";
-
 import RootLayout from "@/components/Layout/RootLayout";
 import Banner from "@/components/UI/Banner";
 import FeaturedCategories from "@/components/UI/FeaturedCategories";
 import FeaturedProduct from "@/components/UI/FeaturedProduct";
 
-// const inter = Inter({ subsets: ["latin"] });
-
 export default function Home({ data }) {
-  // console.log(data, "from index");
   return (
     <div>
       <Banner></Banner>
@@ -24,11 +18,44 @@ Home.getLayout = function getLayout(page) {
 };
 
 export const getStaticProps = async () => {
-  const res = await fetch("http://localhost:3000/api/getHomeProducts");
-  const data = await res.json();
-  return {
-    props: {
-      data,
-    },
-  };
+  if (typeof window === "undefined") {
+    // return {
+    //   props: {
+    //     data: [],
+    //   },
+    // };
+
+    ///
+    const res = await fetch(
+      "https://pc-builder-gules.vercel.app/api/getHomeProducts"
+      // "http://localhost:3000/api/getHomeProducts"
+    );
+    const data = await res.json();
+    return {
+      props: {
+        data,
+      },
+    };
+  } else {
+    const res = await fetch(
+      "https://pc-builder-gules.vercel.app/api/products"
+      // "http://localhost:3000/api/products"
+    );
+    const data = await res.json();
+    return {
+      props: {
+        data,
+      },
+    };
+    // const res = await fetch(
+    //   "https://pc-builder-gules.vercel.app/api/getHomeProducts"
+    //   // "http://localhost:3000/api/getHomeProducts"
+    // );
+    // const data = await res.json();
+    // return {
+    //   props: {
+    //     data,
+    //   },
+    // };
+  }
 };

@@ -1,5 +1,4 @@
 import RootLayout from "@/components/Layout/RootLayout";
-// import { removeProduct } from "@/redux/features/product/productSlice";
 import { removeProduct } from "@/redux/features/product/productSlice";
 
 import Image from "next/image";
@@ -32,16 +31,15 @@ const PC_Builder = () => {
   const monitorExist = buildPcComponents.find(
     (product) => product.category === "monitor"
   );
-  const casingExist = buildPcComponents.find(
-    (product) => product.category === "casing"
-  );
+  // const casingExist = buildPcComponents.find(
+  //   (product) => product.category === "casing"
+  // );
   const enable =
     motherboardExist?._id &&
     processorExist?._id &&
     ramExist?._id &&
     powerSupplyExist?._id &&
     storageExist?._id &&
-    casingExist?._id &&
     monitorExist?._id;
 
   const handleRemove = (product) => {
@@ -236,34 +234,6 @@ const PC_Builder = () => {
         )}
       </div>
       <div className="divider mt-4"></div>
-      <div className="flex w-full justify-between items-center">
-        {casingExist ? (
-          <>
-            <div className="flex items-center">
-              <Image
-                alt={casingExist.category}
-                src={casingExist.image}
-                height="150"
-                width="100"
-              />
-              <div>
-                <p className="ml-4">Name: {casingExist?.category}</p>
-                <p className="ml-4">Price: {casingExist?.price}</p>
-              </div>
-            </div>
-            <p onClick={() => handleRemove(casingExist)} className="btn">
-              X
-            </p>
-          </>
-        ) : (
-          <>
-            <h2>Casing *</h2>
-            <button className="btn btn-accent">
-              <Link href="/pc-builder/casing">Select</Link>
-            </button>
-          </>
-        )}
-      </div>
       <button
         onClick={() => toast.success("you build the pc successfully")}
         disabled={!buildButton}
