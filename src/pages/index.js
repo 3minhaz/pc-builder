@@ -3,6 +3,7 @@
 
 import RootLayout from "@/components/Layout/RootLayout";
 import Banner from "@/components/UI/Banner";
+import FeaturedCategories from "@/components/UI/FeaturedCategories";
 import FeaturedProduct from "@/components/UI/FeaturedProduct";
 
 // const inter = Inter({ subsets: ["latin"] });
@@ -12,6 +13,7 @@ export default function Home({ data }) {
   return (
     <div>
       <Banner></Banner>
+      <FeaturedCategories></FeaturedCategories>
       <FeaturedProduct data={data?.data}></FeaturedProduct>
     </div>
   );
