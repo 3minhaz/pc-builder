@@ -1,7 +1,10 @@
 import Link from "next/link";
 import React from "react";
+import { useSession, signOut } from "next-auth/react";
 
 const Navbar = () => {
+  const { data: session } = useSession();
+
   return (
     <div className="navbar bg-base-100 flex justify-between">
       <div className="navbar-start">
@@ -67,6 +70,15 @@ const Navbar = () => {
         </Link>
       </div>
       <div className="mr-10 hidden lg:flex">
+        {session?.user ? (
+          <>
+            <p className="mr-4">{session?.user.name}</p>
+
+            <button onClick={() => signOut()}>Sign out</button>
+          </>
+        ) : (
+          <Link href="/login">Login</Link>
+        )}
         <ul className="menu menu-horizontal px-1 lg:flex justify-between">
           <li>
             <Link href="/pc-builder">PC Builder</Link>

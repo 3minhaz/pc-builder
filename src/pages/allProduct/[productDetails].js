@@ -4,7 +4,6 @@ import React from "react";
 
 const ProductDetails = ({ data }) => {
   const { data: product } = data;
-
   return (
     <div>
       <div className="hero ">
@@ -52,7 +51,7 @@ ProductDetails.getLayout = function getLayout(page) {
 };
 
 export const getStaticPaths = async () => {
-  const res = await fetch(`http://localhost:3000/api/products`);
+  const res = await fetch(`https://pc-builder-gules.vercel.app/api/products`);
   const { data: product } = await res.json();
 
   const paths = product.map((product) => ({
@@ -68,7 +67,9 @@ export const getStaticPaths = async () => {
 export const getStaticProps = async (context) => {
   const { params } = context;
   console.log(params, "from");
-  const res = await fetch(`http://localhost:3000/api/${params.productDetails}`);
+  const res = await fetch(
+    `https://pc-builder-gules.vercel.app/api/${params.productDetails}`
+  );
   const data = await res.json();
   //   console.log(data);
   return {
