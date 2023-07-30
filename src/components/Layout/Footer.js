@@ -26,7 +26,7 @@ const Footer = () => {
         <span className="footer-title">Address</span>
         <a className="link link-hover">Build PC Tech</a>
         <a className="link link-hover">
-          Head Office: 28 Kazi Nazrul Islam Ave,Navana Zohura Square, Dhaka 1000
+          Head Office: 28 ABC Ave,Draft Building Square, Dhaka 5000
         </a>
         <a className="link link-hover">email: build-pc@email.com</a>
       </div>

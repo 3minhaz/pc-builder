@@ -31,11 +31,11 @@ const Motherboard = ({ motherboard }) => {
           </figure>
           <div className="card-body items-center text-center">
             <h2 className="card-title">{product?.productName}</h2>
-            <p>
+            {/* <p>
               {product?.description.length > 150
                 ? product?.description.slice(0, 150) + "...."
                 : product?.description}
-            </p>
+            </p> */}
             <div>
               <p>Price: {product?.price}</p>
               <p>Category: {product?.category}</p>
