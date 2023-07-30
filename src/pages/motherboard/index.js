@@ -38,7 +38,7 @@ const MotherboardPage = ({ motherboard }) => {
                 // onClick={() => handleSelect(product)}
                 className="btn btn-primary"
               >
-                <Link href={`/cpu-processor/${product._id}`}>Details</Link>
+                <Link href={`/allProduct/${product._id}`}>Details</Link>
               </button>
             </div>
           </div>
