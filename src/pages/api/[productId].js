@@ -4,7 +4,7 @@
 //   res.status(200).json({ name: 'John Doe' })
 // }
 
-import { MongoClient, ServerApiVersion } from "mongodb";
+import { MongoClient, ObjectId, ServerApiVersion } from "mongodb";
 
 const uri = `mongodb+srv://${process.env.DB_USER}:${process.env.DB_PASS}@cluster0.izerapb.mongodb.net/?retryWrites=true&w=majority`;
 
@@ -24,23 +24,17 @@ async function run(req, res) {
     const productsCollection = client.db("pc-builder").collection("products");
     // Send a ping to confirm a successful connection
     // await client.db("admin").command({ ping: 1 });
+
     if (req.method === "GET") {
-      if (req.query.category === undefined) {
-        const result = await productsCollection.find({}).toArray();
-        res.send({ message: "success", status: 200, data: result });
-      } else {
-        const components = await productsCollection
-          .find({
-            category: req.query.category,
-          })
-          .toArray();
-        res.send({ message: "success", status: 200, data: components });
-      }
+      const id = req.query.productId;
+      //   console.log(id, "id from");
+      //   if (id) {
+      const result = await productsCollection.findOne({
+        _id: new ObjectId(id),
+      });
+      res.send({ message: "success", status: 200, data: result });
+      //   }
     }
-    // if (req.method === "GET") {
-    //   const id = req.params.id;
-    //   console.log(id, "from");
-    // }
     console.log(" You successfully connected to MongoDB!");
 
     // res.send({ message: "successfully running server" });

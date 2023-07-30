@@ -40,9 +40,10 @@ const PC_Builder = () => {
     processorExist?._id &&
     ramExist?._id &&
     powerSupplyExist?._id &&
-    storageExist?._id;
-  powerSupplyExist?._id && casingExist?._id;
-  powerSupplyExist?._id && monitorExist?._id;
+    storageExist?._id &&
+    casingExist?._id &&
+    monitorExist?._id;
+
   const handleRemove = (product) => {
     dispatch(removeProduct(product));
   };
